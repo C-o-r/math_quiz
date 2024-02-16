@@ -40,19 +40,21 @@
             resultDiv.innerHTML = '';
 
             // Get user answers
-            for (var i = 0; i < 15; i++) {
+            for (var i = 0; i < 31; i++) {
                 var userAnswer = document.getElementById('answer' + i).value.toLowerCase().trim();
                 userAnswers.push(userAnswer);
             }
 
             // Check answers
             var sections = [
-                { startIndex: 0, endIndex: 5, correctPoints: 1, incorrectPoints: -3, blankPoints: -2 },
-                { startIndex: 5, endIndex: 10, correctPoints: 2, incorrectPoints: -1, blankPoints: -1 },
-                { startIndex: 10, endIndex: 15, correctPoints: 2, incorrectPoints: -2, blankPoints: -1 }
+                { startIndex: 0, endIndex: 15, correctPoints: 1, incorrectPoints: -3, blankPoints: -2 },
+                { startIndex: 15, endIndex: 25, correctPoints: 2, incorrectPoints: -1, blankPoints: -1 },
+                { startIndex: 25, endIndex: 31, correctPoints: 2, incorrectPoints: -2, blankPoints: -1 }
             ];
 
             var totalScore = 0;
+            var correctQuestions = [];
+            var incorrectQuestions = [];
 
             for (var i = 0; i < sections.length; i++) {
                 var section = sections[i];
@@ -64,40 +66,64 @@
 
                     if (userAnswer === correctAnswer) {
                         sectionScore += section.correctPoints;
+                        correctQuestions.push('Question ' + (j + 1));
                     } else if (userAnswer === '') {
                         sectionScore += section.blankPoints;
                     } else {
                         sectionScore += section.incorrectPoints;
+                        incorrectQuestions.push('Question ' + (j + 1));
                     }
                 }
 
                 totalScore += sectionScore;
-
-                var sectionResultDiv = document.createElement('div');
-                sectionResultDiv.textContent = `Section ${i + 1} Score: ${sectionScore} points`;
-                resultDiv.appendChild(sectionResultDiv);
             }
 
             var totalResultDiv = document.createElement('div');
             totalResultDiv.textContent = `Total Score: ${totalScore} points`;
             resultDiv.appendChild(totalResultDiv);
+
+            var correctResultDiv = document.createElement('div');
+            correctResultDiv.textContent = `Correct Answers: ${correctQuestions.join(', ')}`;
+            correctResultDiv.classList.add('correct');
+            resultDiv.appendChild(correctResultDiv);
+
+            var incorrectResultDiv = document.createElement('div');
+            incorrectResultDiv.textContent = `Incorrect Answers: ${incorrectQuestions.join(', ')}`;
+            incorrectResultDiv.classList.add('incorrect');
+            resultDiv.appendChild(incorrectResultDiv);
         });
+
+        // Timer
+        var timeLeft = 600; // 10 minutes in seconds
+        var countdown = setInterval(function() {
+            var minutes = Math.floor(timeLeft / 60);
+            var seconds = timeLeft % 60;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                document.getElementById('quizForm').submit();
+            } else {
+                document.getElementById('timer').textContent = minutes + "m " + seconds + "s";
+            }
+            timeLeft--;
+        }, 1000);
 
         // Generate questions
         document.addEventListener('DOMContentLoaded', function() {
             var questionsDiv = document.getElementById('questions');
             var questions = [
                 // Section 1: Computation of Real Numbers
-                "0.3 x 0.45 =", "5.6 / 0.35 =", "8.25 * 8 =", "-4.333 + 2.212 =", "64 * 0.125 =", 
-                "88.35 * 0.5 =", "0.8 - 0.08 =", "25 / 0.4 =", "0.48 / 1.6 =", "70 * 1.03 =",
-                "1348 + 7895 =", "56.24 + 1.447 =", "12.07 - 8.18 =",
-                // Section 2: Computation of Decimal Numbers
                 "7 x 18 =", "54 / 8 =", "158 + 43 =", "48 + 131 =", "23 + 87 =", 
-                "65 / 5 =", "77 - 18 =", "117 - 36 =", "81 x 3 =", "4 x 8 =",
+                "65 / 5 =", "77 - 18 =", "117 - 36 =", "81 x 3 =", "4 x 8 =", 
+                "22 x 8 =", "- 137 - 42 =", "114 / 3 =", "49 / 7 =", "63 - 23 =",
+                // Section 2: Computation of Decimal Numbers
+                "0.3 x 0.45 =", "5.6 / 0.35 =", "8.25 * 8 =", "-4.333 + 2.212 =", "64 * 0.125 =", 
+                "88.35 * 0.5 =", "0.8 - 0.08 =", "25 / 0.4 =", "0.48 / 1.6 =", "70 * 1.03 =", 
+                "1348 + 7895 =", "56.24 + 1.447 =", "12.07 - 8.18 =",
                 // Section 3: Multiplication of Decimal Numbers
-                "22 x 8 =", "137 - 42 =", "114 / 3 =", "49 / 7 =", "63 - 23 =",
-                "786.3 * 1.03 =", "30 * 5000 =", "78 * 51 =", "131 * 75 =", "161 * 121 =",
-                "915 * 50 =", "808.88", "150000", "4289", "8825", "20681", "45750", "722.7"
+                "786.3 * 1.03 =", "30 * 5000 =", "78 * 51 =", "131 * 75 =", "161 * 121 =", 
+                "915 * 50 =", "808.88", "150000", "4289", "8825", "20681", 
+                "45750", "722.7", "15000", "4978", "161 * 121 =", "915 * 50 ="
             ];
 
             for (var i = 0; i < questions.length; i++) {
@@ -111,5 +137,6 @@
             }
         });
     </script>
+    <div id="timer">10m 0s</div>
 </body>
 </html>
