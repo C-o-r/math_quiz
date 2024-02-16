@@ -40,56 +40,73 @@
             resultDiv.innerHTML = '';
 
             // Get user answers
-            for (var i = 0; i < 3; i++) {
-                var userAnswer = parseInt(document.getElementById('answer' + i).value);
+            for (var i = 0; i < 15; i++) {
+                var userAnswer = document.getElementById('answer' + i).value.toLowerCase().trim();
                 userAnswers.push(userAnswer);
             }
 
             // Check answers
-            for (var i = 0; i < 3; i++) {
-                var correctAnswer = parseInt(document.getElementById('question' + i).getAttribute('data-answer'));
-                correctAnswers.push(correctAnswer);
-            }
-
-            for (var i = 0; i < 3; i++) {
-                var answerDiv = document.createElement('div');
-                if (userAnswers[i] === correctAnswers[i]) {
-                    answerDiv.textContent = `Question ${i + 1}: ${userAnswers[i]} is correct.`;
-                    answerDiv.classList.add('correct');
-                } else {
-                    answerDiv.textContent = `Question ${i + 1}: Your answer (${userAnswers[i]}) is incorrect. The correct answer is ${correctAnswers[i]}.`;
-                    answerDiv.classList.add('incorrect');
-                }
-                resultDiv.appendChild(answerDiv);
-            }
-        });
-
-        // Generate random questions
-        document.addEventListener('DOMContentLoaded', function() {
-            var questionsDiv = document.getElementById('questions');
-            var problems = [
-                { question: "10 + 10", answer: 20 },
-                { question: "20 + 30", answer: 50 },
-                { question: "30 + 34", answer: 64 },
-                { question: "23 + 23", answer: 46 },
-                { question: "23 + 12", answer: 35 },
-                { question: "34 + 23", answer: 57 },
-                { question: "23 + 12", answer: 35 },
-                { question: "43 + 54", answer: 97 },
-                { question: "53 + 12", answer: 65 },
-                { question: "23 + 23", answer: 46 }
+            var sections = [
+                { startIndex: 0, endIndex: 5, correctPoints: 1, incorrectPoints: -3, blankPoints: -2 },
+                { startIndex: 5, endIndex: 10, correctPoints: 2, incorrectPoints: -1, blankPoints: -1 },
+                { startIndex: 10, endIndex: 15, correctPoints: 2, incorrectPoints: -2, blankPoints: -1 }
             ];
 
-            // Shuffle the problems array
-            problems.sort(() => Math.random() - 0.5);
+            var totalScore = 0;
 
-            // Display 3 random questions
-            for (var i = 0; i < 3; i++) {
-                var problem = problems[i];
+            for (var i = 0; i < sections.length; i++) {
+                var section = sections[i];
+                var sectionScore = 0;
+
+                for (var j = section.startIndex; j < section.endIndex; j++) {
+                    var userAnswer = userAnswers[j];
+                    var correctAnswer = document.getElementById('question' + j).getAttribute('data-answer').toLowerCase().trim();
+
+                    if (userAnswer === correctAnswer) {
+                        sectionScore += section.correctPoints;
+                    } else if (userAnswer === '') {
+                        sectionScore += section.blankPoints;
+                    } else {
+                        sectionScore += section.incorrectPoints;
+                    }
+                }
+
+                totalScore += sectionScore;
+
+                var sectionResultDiv = document.createElement('div');
+                sectionResultDiv.textContent = `Section ${i + 1} Score: ${sectionScore} points`;
+                resultDiv.appendChild(sectionResultDiv);
+            }
+
+            var totalResultDiv = document.createElement('div');
+            totalResultDiv.textContent = `Total Score: ${totalScore} points`;
+            resultDiv.appendChild(totalResultDiv);
+        });
+
+        // Generate questions
+        document.addEventListener('DOMContentLoaded', function() {
+            var questionsDiv = document.getElementById('questions');
+            var questions = [
+                // Section 1: Computation of Real Numbers
+                "0.3 x 0.45 =", "5.6 / 0.35 =", "8.25 * 8 =", "-4.333 + 2.212 =", "64 * 0.125 =", 
+                "88.35 * 0.5 =", "0.8 - 0.08 =", "25 / 0.4 =", "0.48 / 1.6 =", "70 * 1.03 =",
+                "1348 + 7895 =", "56.24 + 1.447 =", "12.07 - 8.18 =",
+                // Section 2: Computation of Decimal Numbers
+                "7 x 18 =", "54 / 8 =", "158 + 43 =", "48 + 131 =", "23 + 87 =", 
+                "65 / 5 =", "77 - 18 =", "117 - 36 =", "81 x 3 =", "4 x 8 =",
+                // Section 3: Multiplication of Decimal Numbers
+                "22 x 8 =", "137 - 42 =", "114 / 3 =", "49 / 7 =", "63 - 23 =",
+                "786.3 * 1.03 =", "30 * 5000 =", "78 * 51 =", "131 * 75 =", "161 * 121 =",
+                "915 * 50 =", "808.88", "150000", "4289", "8825", "20681", "45750", "722.7"
+            ];
+
+            for (var i = 0; i < questions.length; i++) {
                 var questionDiv = document.createElement('div');
-                questionDiv.innerHTML = `<label for="answer${i}">${problem.question} = </label><input type="number" id="answer${i}" required><br>`;
+                var question = questions[i];
+                var answerId = 'answer' + i;
+                questionDiv.innerHTML = `<label for="${answerId}">${question}</label> <input type="text" id="${answerId}" required><br>`;
                 questionDiv.setAttribute('id', 'question' + i);
-                questionDiv.setAttribute('data-answer', problem.answer);
+                questionDiv.setAttribute('data-answer', question.split('=')[1].trim().toLowerCase());
                 questionsDiv.appendChild(questionDiv);
             }
         });
