@@ -13,6 +13,12 @@
             font-weight: bold;
             margin-top: 10px;
         }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -31,6 +37,7 @@
             var userAnswers = [];
             var correctAnswers = [];
             var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
 
             // Get user answers
             for (var i = 0; i < 3; i++) {
@@ -44,20 +51,16 @@
                 correctAnswers.push(correctAnswer);
             }
 
-            var allCorrect = true;
             for (var i = 0; i < 3; i++) {
-                if (userAnswers[i] !== correctAnswers[i]) {
-                    allCorrect = false;
-                    break;
+                var answerDiv = document.createElement('div');
+                if (userAnswers[i] === correctAnswers[i]) {
+                    answerDiv.textContent = `Question ${i + 1}: ${userAnswers[i]} is correct.`;
+                    answerDiv.classList.add('correct');
+                } else {
+                    answerDiv.textContent = `Question ${i + 1}: Your answer (${userAnswers[i]}) is incorrect. The correct answer is ${correctAnswers[i]}.`;
+                    answerDiv.classList.add('incorrect');
                 }
-            }
-
-            if (allCorrect) {
-                resultDiv.textContent = "Congratulations! All your answers are correct!";
-                resultDiv.style.color = "green";
-            } else {
-                resultDiv.textContent = "Sorry, one or more answers are incorrect. Please try again.";
-                resultDiv.style.color = "red";
+                resultDiv.appendChild(answerDiv);
             }
         });
 
