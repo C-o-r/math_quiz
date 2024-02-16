@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Math Quiz</h1>
+
+    <div id="quiz-container">
+        <p>What is 1 + 1?</p>
+        <input type="text" id="user-answer" placeholder="Your answer">
+        <button onclick="checkAnswer()">Submit</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            // Get user's answer
+            var userAnswer = document.getElementById('user-answer').value;
+
+            // Check if the answer is correct
+            if (userAnswer == 2) {
+                document.getElementById('result').innerHTML = 'Correct! Well done.';
+            } else {
+                document.getElementById('result').innerHTML = 'Oops! That\'s incorrect. Try again.';
+            }
+        }
+    </script>
+
+</body>
+</html>
