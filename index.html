@@ -41,15 +41,24 @@
 
             // Get user answers
             for (var i = 0; i < 31; i++) {
-                var userAnswer = document.getElementById('answer' + i).value.toLowerCase().trim();
-                userAnswers.push(userAnswer);
+                if (i < 26) {
+                    var userAnswer = document.getElementById('answer' + i).value.toLowerCase().trim();
+                    userAnswers.push(userAnswer);
+                } else {
+                    var userAnswer = document.querySelector('input[name="choice' + i + '"]:checked');
+                    if (userAnswer) {
+                        userAnswers.push(userAnswer.value);
+                    } else {
+                        userAnswers.push('');
+                    }
+                }
             }
 
             // Check answers
             var sections = [
                 { startIndex: 0, endIndex: 15, correctPoints: 1, incorrectPoints: -3, blankPoints: -2 },
-                { startIndex: 15, endIndex: 25, correctPoints: 2, incorrectPoints: -1, blankPoints: -1 },
-                { startIndex: 25, endIndex: 31, correctPoints: 2, incorrectPoints: -2, blankPoints: -1 }
+                { startIndex: 16, endIndex: 25, correctPoints: 2, incorrectPoints: -1, blankPoints: -1 },
+                { startIndex: 26, endIndex: 31, correctPoints: 2, incorrectPoints: -2, blankPoints: -1 }
             ];
 
             var totalScore = 0;
@@ -122,15 +131,27 @@
                 "1348 + 7895 =", "56.24 + 1.447 =", "12.07 - 8.18 =",
                 // Section 3: Multiplication of Decimal Numbers
                 "786.3 * 1.03 =", "30 * 5000 =", "78 * 51 =", "131 * 75 =", "161 * 121 =", 
-                "915 * 50 =", "808.88", "150000", "4289", "8825", "20681", 
-                "45750", "722.7", "15000", "4978", "161 * 121 =", "915 * 50 ="
+                "915 * 50 =", "a. 808.88", "a. 150000", "a. 4289", "a. 8825", "a. 20681", 
+                "a. 45750", "a. 722.7", "b. 15000", "b. 4978", "c. 9825", "c. 19481", 
+                "b. 44550", "b. 732.9", "c. 45350", "a. 148.6"
             ];
 
             for (var i = 0; i < questions.length; i++) {
                 var questionDiv = document.createElement('div');
                 var question = questions[i];
                 var answerId = 'answer' + i;
-                questionDiv.innerHTML = `<label for="${answerId}">${question}</label> <input type="text" id="${answerId}" required><br>`;
+                if (i < 26) {
+                    questionDiv.innerHTML = `<label for="${answerId}">${question}</label> <input type="text" id="${answerId}" required><br>`;
+                } else {
+                    questionDiv.innerHTML = `${question}<br>
+                        <label for="choice${i}a">a.</label>
+                        <input type="radio" id="choice${i}a" name="choice${i}" value="a">
+                        <label for="choice${i}b">b.</label>
+                        <input type="radio" id="choice${i}b" name="choice${i}" value="b">
+                        <label for="choice${i}c">c.</label>
+                        <input type="radio" id="choice${i}c" name="choice${i}" value="c">
+                        <br>`;
+                }
                 questionDiv.setAttribute('id', 'question' + i);
                 questionDiv.setAttribute('data-answer', question.split('=')[1].trim().toLowerCase());
                 questionsDiv.appendChild(questionDiv);
