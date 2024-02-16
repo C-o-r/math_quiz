@@ -19,6 +19,9 @@
         .incorrect {
             color: red;
         }
+        .section {
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
@@ -41,7 +44,7 @@
 
             // Get user answers
             for (var i = 0; i < 31; i++) {
-                if (i < 26) {
+                if (i < 30) {
                     var userAnswer = document.getElementById('answer' + i).value.toLowerCase().trim();
                     userAnswers.push(userAnswer);
                 } else {
@@ -57,8 +60,8 @@
             // Check answers
             var sections = [
                 { startIndex: 0, endIndex: 15, correctPoints: 1, incorrectPoints: -3, blankPoints: -2 },
-                { startIndex: 16, endIndex: 25, correctPoints: 2, incorrectPoints: -1, blankPoints: -1 },
-                { startIndex: 26, endIndex: 31, correctPoints: 2, incorrectPoints: -2, blankPoints: -1 }
+                { startIndex: 15, endIndex: 30, correctPoints: 2, incorrectPoints: -1, blankPoints: -1 },
+                { startIndex: 30, endIndex: 31, correctPoints: 2, incorrectPoints: -2, blankPoints: -1 }
             ];
 
             var totalScore = 0;
@@ -122,35 +125,35 @@
             var questionsDiv = document.getElementById('questions');
             var questions = [
                 // Section 1: Computation of Real Numbers
-                "7 x 18 =", "54 / 8 =", "158 + 43 =", "48 + 131 =", "23 + 87 =", 
-                "65 / 5 =", "77 - 18 =", "117 - 36 =", "81 x 3 =", "4 x 8 =", 
+                "7 x 18 =", "54 / 8 =", "158 + 43 =", "48 + 131 =", "23 + 87 =",
+                "65 / 5 =", "77 - 18 =", "117 - 36 =", "81 x 3 =", "4 x 8 =",
                 "22 x 8 =", "- 137 - 42 =", "114 / 3 =", "49 / 7 =", "63 - 23 =",
                 // Section 2: Computation of Decimal Numbers
-                "0.3 x 0.45 =", "5.6 / 0.35 =", "8.25 * 8 =", "-4.333 + 2.212 =", "64 * 0.125 =", 
-                "88.35 * 0.5 =", "0.8 - 0.08 =", "25 / 0.4 =", "0.48 / 1.6 =", "70 * 1.03 =", 
-                "1348 + 7895 =", "56.24 + 1.447 =", "12.07 - 8.18 =",
+                "0.3 x 0.45 =", "5.6 / 0.35 =", "8.25 * 8 =", "-4.333 + 2.212 =", "64 * 0.125 =",
+                "88.35 * 0.5 =", "0.8 - 0.08 =", "25 / 0.4 =", "0.48 / 1.6 =", "70 * 1.03 =",
+                "1348 + 7895 =", "56.24 + 1.447 =", "12.07 - 8.18 =", "131 * 75 =", "161 * 121 =",
                 // Section 3: Multiplication of Decimal Numbers
-                "786.3 * 1.03 =", "30 * 5000 =", "78 * 51 =", "131 * 75 =", "161 * 121 =", 
-                "915 * 50 =", "a. 808.88", "a. 150000", "a. 4289", "a. 8825", "a. 20681", 
-                "a. 45750", "a. 722.7", "b. 15000", "b. 4978", "c. 9825", "c. 19481", 
-                "b. 44550", "b. 732.9", "c. 45350", "a. 148.6"
+                "786.3 * 1.03 =", "30 * 5000 =", "78 * 51 =",
             ];
+
+            var choices = ['a', 'b', 'c'];
 
             for (var i = 0; i < questions.length; i++) {
                 var questionDiv = document.createElement('div');
                 var question = questions[i];
                 var answerId = 'answer' + i;
-                if (i < 26) {
-                    questionDiv.innerHTML = `<label for="${answerId}">${question}</label> <input type="text" id="${answerId}" required><br>`;
+                var choiceName = 'choice' + i;
+                questionDiv.innerHTML = `<label for="${answerId}">${question}</label><br>`;
+                if (i >= 30) {
+                    // Add choices for Section 3
+                    for (var j = 0; j < choices.length; j++) {
+                        var choiceLabel = document.createElement('label');
+                        choiceLabel.innerHTML = `<input type="radio" name="${choiceName}" value="${choices[j]}">${choices[j]}. `;
+                        choiceLabel.innerHTML += `<span>${j + 1}</span>&nbsp;&nbsp;`; // Display number of choice
+                        questionDiv.appendChild(choiceLabel);
+                    }
                 } else {
-                    questionDiv.innerHTML = `${question}<br>
-                        <label for="choice${i}a">a.</label>
-                        <input type="radio" id="choice${i}a" name="choice${i}" value="a">
-                        <label for="choice${i}b">b.</label>
-                        <input type="radio" id="choice${i}b" name="choice${i}" value="b">
-                        <label for="choice${i}c">c.</label>
-                        <input type="radio" id="choice${i}c" name="choice${i}" value="c">
-                        <br>`;
+                    questionDiv.innerHTML += `<input type="text" id="${answerId}" required><br>`;
                 }
                 questionDiv.setAttribute('id', 'question' + i);
                 questionDiv.setAttribute('data-answer', question.split('=')[1].trim().toLowerCase());
@@ -158,6 +161,7 @@
             }
         });
     </script>
+    <div class="section"></div>
     <div id="timer">10m 0s</div>
 </body>
 </html>
