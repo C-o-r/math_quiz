@@ -85,59 +85,69 @@
             q7: document.querySelector('input[name="q7"]:checked') ? document.querySelector('input[name="q7"]:checked').value : null
         };
 
-        // Calculate score for Section 1
-        let scoreSection1 = 0;
-        const correctAnswersSection1 = {
+        // Correct answers
+        const correctAnswers = {
             q1: '128',
             q2: '124',
-            q3: '26'
-        };
-
-        for (const question in correctAnswersSection1) {
-            if (answers[question] === correctAnswersSection1[question]) {
-                scoreSection1 += 1; // Correct answers
-            } else if (answers[question] === '') {
-                scoreSection1 -= 2; // Blanks
-            } else {
-                scoreSection1 -= 3; // Incorrect answers
-            }
-        }
-
-        // Calculate score for Section 2
-        let scoreSection2 = 0;
-        const correctAnswersSection2 = {
+            q3: '26',
             q4: '0.0025',
-            q5: '0.04'
-        };
-
-        for (const question in correctAnswersSection2) {
-            if (answers[question] === correctAnswersSection2[question]) {
-                scoreSection2 += 2; // Correct answers
-            } else if (answers[question] === '') {
-                scoreSection2 -= 1; // Blanks
-            } else {
-                scoreSection2 -= 1; // Incorrect answers
-            }
-        }
-
-        // Calculate score for Section 3
-        let scoreSection3 = 0;
-        const correctAnswersSection3 = {
+            q5: '0.04',
             q6: 'b',
             q7: 'c'
         };
 
-        for (const question in correctAnswersSection3) {
-            if (answers[question] === correctAnswersSection3[question]) {
-                scoreSection3 += 2; // Correct answers
-            } else {
-                scoreSection3 -= 2; // Incorrect answers
+        // Display feedback for each question
+        for (const question in correctAnswers) {
+            const isCorrect = answers[question] === correctAnswers[question];
+            const feedback = isCorrect ? 'correct' : (answers[question] === '' ? 'blank' : 'wrong');
+            console.log(`${question}: ${feedback}`);
+        }
+
+        // Calculate score for each section
+        let scoreSection1 = 0;
+        let scoreSection2 = 0;
+        let scoreSection3 = 0;
+
+        // Calculate score for Section 1
+        for (const question in correctAnswers) {
+            if (question.startsWith('q1') || question.startsWith('q2') || question.startsWith('q3')) {
+                if (answers[question] === correctAnswers[question]) {
+                    scoreSection1 += 1; // Correct answers
+                } else if (answers[question] === '') {
+                    scoreSection1 -= 2; // Blanks
+                } else {
+                    scoreSection1 -= 3; // Incorrect answers
+                }
+            }
+        }
+
+        // Calculate score for Section 2
+        for (const question in correctAnswers) {
+            if (question.startsWith('q4') || question.startsWith('q5')) {
+                if (answers[question] === correctAnswers[question]) {
+                    scoreSection2 += 2; // Correct answers
+                } else if (answers[question] === '') {
+                    scoreSection2 -= 1; // Blanks
+                } else {
+                    scoreSection2 -= 1; // Incorrect answers
+                }
+            }
+        }
+
+        // Calculate score for Section 3
+        for (const question in correctAnswers) {
+            if (question.startsWith('q6') || question.startsWith('q7')) {
+                if (answers[question] === correctAnswers[question]) {
+                    scoreSection3 += 2; // Correct answers
+                } else {
+                    scoreSection3 -= 2; // Incorrect answers
+                }
             }
         }
 
         // Display final score and feedback
         const finalScore = scoreSection1 + scoreSection2 + scoreSection3;
-        alert(`Your Final Score: ${finalScore}\nFeedback:\nSection 1: ${scoreSection1} points (${answers.q1 === correctAnswersSection1.q1 ? 'Correct' : 'Wrong'})\nSection 2: ${scoreSection2} points (${answers.q4 === correctAnswersSection2.q4 ? 'Correct' : 'Wrong'})\nSection 3: ${scoreSection3} points (${answers.q6 === correctAnswersSection3.q6 ? 'Correct' : 'Wrong'})`);
+        alert(`Your Final Score: ${finalScore}\nFeedback:\nSection 1: ${scoreSection1} points\nSection 2: ${scoreSection2} points\nSection 3: ${scoreSection3} points`);
     }
 </script>
 
