@@ -207,6 +207,7 @@
                     scoreSection1 += 1; // Correct answers
                 } else if (answers[question] === '') {
                     scoreSection1 -= 2; // Blanks
+                    incorrectQuestionsSection1.push(question)
                 } else {
                     scoreSection1 -= 3; // Incorrect answers
                     incorrectQuestionsSection1.push(question);
@@ -240,6 +241,7 @@
                     scoreSection2 += 2; // Correct answers
                 } else if (answers[question] === '') {
                     scoreSection2 -= 1; // Blanks
+                     incorrectQuestionsSection2.push(question)
                 } else {
                     scoreSection2 -= 1; // Incorrect answers
                     incorrectQuestionsSection2.push(question);
