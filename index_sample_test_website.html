@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz with Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Replace 'your-image.png' with the actual filename and path of your PNG image -->
+    <img src="flow.png" alt="All rights reserved to ©Flow Traders">
+
+    <!-- Section 1: Computation of Real Numbers -->
+    <section>
+        <h2>Section 1: Computation of Real Numbers</h2>
+        <p>Correct Answers: +1 Point, Incorrect Answers: -3 points, Blanks: -2 points</p>
+        <p>1. 7 * 18 = <input type="text" id="q1"></p>
+        <p>2. 56 / 8 = <input type="text" id="q2"></p>
+        <p>3. 158 + 43 = <input type="text" id="q3"></p>
+        <p>4. 48 + 131 = <input type="text" id="q4"></p>
+        <p>5. 23 + 87 = <input type="text" id="q5"></p>
+        <p>6. 65 / 5  = <input type="text" id="q6"></p>
+        <p>7. 77 - 18 = <input type="text" id="q7"></p>
+        <p>8. 117 - 36 = <input type="text" id="q8"></p>
+        <p>9. 81 * 3 = <input type="text" id="q9"></p>
+        <p>10. 4 * 8 = <input type="text" id="q10"></p>
+        <p>11. 22 * 8 = <input type="text" id="q11"></p>
+        <p>12. -137 - 42 = <input type="text" id="q12"></p>
+        <p>13. 114 / 3 = <input type="text" id="q13"></p>
+        <p>14. 49 / 7 = <input type="text" id="q14"></p>
+        <p>15. 63 - 23 = <input type="text" id="q15"></p>
+    </section>
+
+    <!-- Section 2: Computation of Decimal Numbers -->
+    <section>
+        <h2>Section 2: Computation of Decimal Numbers</h2>
+        <p>Correct Answers: +2 Points, Incorrect Answers: -1 point, Blanks: -1 point</p>
+        <p>16. 0.3 * 0.45 = <input type="text" id="q16"></p>
+        <p>17. 5.6 / 0.35 = <input type="text" id="q17"></p>
+        <p>18. 8.25 * 8 = <input type="text" id="q18"></p>
+        <p>19. -4.333 + 2.212 = <input type="text" id="q19"></p>
+        <p>20. 64 * 0.125 = <input type="text" id="q20"></p>
+        <p>21. 96 * 0.25 = <input type="text" id="q21"></p>
+        <p>22. 88.35 * 0.5 = <input type="text" id="q22"></p>
+        <p>23. 0.8 - 0.08 = <input type="text" id="q23"></p>
+        <p>24. 25 / 0.4 = <input type="text" id="q24"></p>
+        <p>25. 0.48 / 1.6 = <input type="text" id="q25"></p>
+        <p>26. 70 * 1.03 = <input type="text" id="q26"></p>
+        <p>27. 4.3 * 0.15 = <input type="text" id="q27"></p>
+        <p>28. 1348 + 7895 = <input type="text" id="q28"></p>
+        <p>29. 56.24 + 1.447 = <input type="text" id="q29"></p>
+        <p>30. 12.07 - 8.18 = <input type="text" id="q30"></p>
+    </section>
+
+    <!-- Section 3: Multiplication of Decimal Numbers -->
+    <section>
+        <h2>Section 3: Multiplication of Decimal Numbers</h2>
+        <p>Correct Answers: +2 Points, Incorrect Answers: -2 point, Blanks: -1 point</p>
+        <p>31. 786.3 * 1.03 = <br>
+            a) <input type="radio" name="q31" value="a"> 808.88
+            b) <input type="radio" name="q31" value="b"> 809.89
+            c) <input type="radio" name="q31" value="c"> 808.98
+        </p>
+        <p>32. 30 * 5000 = <br>
+            a) <input type="radio" name="q32" value="a"> 150000
+            b) <input type="radio" name="q32" value="b"> 15000
+            c) <input type="radio" name="q32" value="c"> 250000
+        </p>
+        <p>33. 78 * 51 = <br>
+            a) <input type="radio" name="q33" value="a"> 4289
+            b) <input type="radio" name="q33" value="b"> 4978
+            c) <input type="radio" name="q33" value="c"> 3978
+        </p>
+        <p>34. 131 * 75 = <br>
+            a) <input type="radio" name="q34" value="a"> 8825
+            b) <input type="radio" name="q34" value="b"> 9725
+            c) <input type="radio" name="q34" value="c"> 9825
+        </p>
+        <p>35. 161 * 121 = <br>
+            a) <input type="radio" name="q35" value="a"> 20681
+            b) <input type="radio" name="q35" value="b"> 19681
+            c) <input type="radio" name="q35" value="c"> 19481
+        </p>
+        <p>36. 915 * 50 = <br>
+            a) <input type="radio" name="q36" value="a"> 45750
+            b) <input type="radio" name="q36" value="b"> 44550
+            c) <input type="radio" name="q36" value="c"> 48750
+        </p>
+        <p>37. 684.9 * 1.07 = <br>
+            a) <input type="radio" name="q37" value="a"> 722.7
+            b) <input type="radio" name="q37" value="b"> 732.9
+            c) <input type="radio" name="q37" value="c"> 732.8
+        </p>
+        <p>38. 64.5 * 700 = <br>
+            a) <input type="radio" name="q38" value="a"> 45150
+            b) <input type="radio" name="q38" value="b"> 46150
+            c) <input type="radio" name="q38" value="c"> 45350
+        </p>
+        <p>39. 78.2 * 2.04 = <br>
+            a) <input type="radio" name="q39" value="a"> 148.6
+            b) <input type="radio" name="q39" value="b"> 159.5
+            c) <input type="radio" name="q39" value="c"> 169.5
+        </p>
+    </section>
+
+    <!-- Timer -->
+    <div id="timer">Time Left: 10:00</div>
+
+    <!-- Submit Button -->
+    <button onclick="submitAnswers()">Submit</button>
+
+    <script>
+        let time = 600; // 10 minutes in seconds
+        let timerInterval;
+
+        // Update timer every second
+        function updateTimer() {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            document.getElementById('timer').textContent = `Time Left: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            time--;
+
+            if (time < 0) {
+                clearInterval(timerInterval);
+                submitAnswers();
+            }
+        }
+
+        timerInterval = setInterval(updateTimer, 1000);
+
+        // Function to submit answers and calculate score
+        function submitAnswers() {
+            clearInterval(timerInterval);
+
+            // Retrieve user answers
+            const answers = {
+                q1: document.getElementById('q1').value,
+                q2: document.getElementById('q2').value,
+                q3: document.getElementById('q3').value,
+                q4: document.getElementById('q4').value,
+                q5: document.getElementById('q5').value,
+                q6: document.getElementById('q6').value,
+                q7: document.getElementById('q7').value,
+                q8: document.getElementById('q8').value,
+                q9: document.getElementById('q9').value,
+                q10: document.getElementById('q10').value,
+                q11: document.getElementById('q11').value,
+                q12: document.getElementById('q12').value,
+                q13: document.getElementById('q13').value,
+                q14: document.getElementById('q14').value,
+                q15: document.getElementById('q15').value,
+                
+                q16: document.getElementById('q16').value,
+                q17: document.getElementById('q17').value,
+                q18: document.getElementById('q18').value,
+                q19: document.getElementById('q19').value,
+                q20: document.getElementById('q20').value,
+                q21: document.getElementById('q21').value,
+                q22: document.getElementById('q22').value,
+                q23: document.getElementById('q23').value,
+                q24: document.getElementById('q24').value,
+                q25: document.getElementById('q25').value,
+                q26: document.getElementById('q26').value,
+                q27: document.getElementById('q27').value,
+                q28: document.getElementById('q28').value,
+                q29: document.getElementById('q29').value,
+                q30: document.getElementById('q30').value,
+                q31: document.querySelector('input[name="q31"]:checked') ? document.querySelector('input[name="q31"]:checked').value : null,
+                q32: document.querySelector('input[name="q32"]:checked') ? document.querySelector('input[name="q32"]:checked').value : null,
+                q33: document.querySelector('input[name="q33"]:checked') ? document.querySelector('input[name="q33"]:checked').value : null,
+                q34: document.querySelector('input[name="q34"]:checked') ? document.querySelector('input[name="q34"]:checked').value : null,
+                q35: document.querySelector('input[name="q35"]:checked') ? document.querySelector('input[name="q35"]:checked').value : null,
+                q36: document.querySelector('input[name="q36"]:checked') ? document.querySelector('input[name="q36"]:checked').value : null,
+                q37: document.querySelector('input[name="q37"]:checked') ? document.querySelector('input[name="q37"]:checked').value : null,
+                q38: document.querySelector('input[name="q38"]:checked') ? document.querySelector('input[name="q38"]:checked').value : null,
+                q39: document.querySelector('input[name="q39"]:checked') ? document.querySelector('input[name="q39"]:checked').value : null
+            };
+
+            // Calculate score for Section 1
+            let scoreSection1 = 0;
+            let incorrectQuestionsSection1 = [];
+
+            const correctAnswersSection1 = {
+                q1: '126',
+                q2: '7',
+                q3: '201',
+                q4: '179',
+                q5: '110',
+                q6: '13',
+                q7: '59',
+                q8: '81',
+                q9: '243',
+                q10: '32',
+                q11: '176',
+                q12: '-179',
+                q13: '38',
+                q14: '7',
+                q15: '40'
+            };
+
+            for (const question in correctAnswersSection1) {
+                if (answers[question] === correctAnswersSection1[question]) {
+                    scoreSection1 += 1; // Correct answers
+                } else if (answers[question] === '') {
+                    scoreSection1 -= 2; // Blanks
+                    incorrectQuestionsSection1.push(question)
+                } else {
+                    scoreSection1 -= 3; // Incorrect answers
+                    incorrectQuestionsSection1.push(question);
+                }
+            }
+
+            // Calculate score for Section 2
+            let scoreSection2 = 0;
+            let incorrectQuestionsSection2 = [];
+
+            const correctAnswersSection2 = {
+                q16: '0.135',
+                q17: '16',
+                q18: '66',
+                q19: '-2.121',
+                q20: '8',
+                q21: '24',
+                q22: '44.175',
+                q23: '0.72',
+                q24: '62.5',
+                q25: '0.3',
+                q26: '72.1',
+                q27: '0.645',
+                q28: '9243',
+                q29: '57.687',
+                q30: '3.89'
+            };
+
+            for (const question in correctAnswersSection2) {
+                if (answers[question] === correctAnswersSection2[question]) {
+                    scoreSection2 += 2; // Correct answers
+                } else if (answers[question] === '') {
+                    scoreSection2 -= 1; // Blanks
+                     incorrectQuestionsSection2.push(question)
+                } else {
+                    scoreSection2 -= 1; // Incorrect answers
+                    incorrectQuestionsSection2.push(question);
+                }
+            }
+
+            // Calculate score for Section 3
+            let scoreSection3 = 0;
+            let incorrectQuestionsSection3 = [];
+
+            const correctAnswersSection3 = {
+                q31: 'b',
+                q32: 'a',
+                q33: 'c',
+                q34: 'c',
+                q35: 'c',
+                q36: 'a',
+                q37: 'c',
+                q38: 'a',
+                q39: 'b'
+            };
+
+            for (const question in correctAnswersSection3) {
+                if (answers[question] === correctAnswersSection3[question]) {
+                    scoreSection3 += 2; // Correct answers
+                } else if (!answers[question]) {
+                    scoreSection3 -= 1; // No option selected
+                    incorrectQuestionsSection3.push(question)
+                }else {
+                    scoreSection3 -= 2; // Incorrect answers
+                    incorrectQuestionsSection3.push(question);
+                }
+            }
+
+            // Display final score and feedback
+            const finalScore = scoreSection1 + scoreSection2 + scoreSection3;
+            let feedback = `Your Final Score: ${finalScore}\nFeedback:\n`;
+
+            if (incorrectQuestionsSection1.length > 0) {
+                feedback += `Section 1: Incorrect answers in questions ${incorrectQuestionsSection1.join(', ')}\n`;
+            } else {
+                feedback += 'Section 1: All correct in Section 1\n';
+            }
+
+            if (incorrectQuestionsSection2.length > 0) {
+                feedback += `Section 2: Incorrect answers in questions ${incorrectQuestionsSection2.join(', ')}\n`;
+            } else {
+                feedback += 'Section 2: All correct in Section 2\n';
+            }
+
+            if (incorrectQuestionsSection3.length > 0) {
+                feedback += `Section 3: Incorrect answers in questions ${incorrectQuestionsSection3.join(', ')}\n`;
+            } else {
+                feedback += 'Section 3: All correct in Section 3\n';
+            }
+
+            alert(feedback);
+        }
+    </script>
+
+</body>
+</html>
