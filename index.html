@@ -267,7 +267,7 @@
             for (const question in correctAnswersSection3) {
                 if (answers[question] === correctAnswersSection3[question]) {
                     scoreSection3 += 2; // Correct answers
-                 } else if (answers[question] === '') {
+                 } else if (answers[question] === undefined || answers[question] === '') {
                     scoreSection3 -= 1; // Blanks
                     incorrectQuestionsSection3.push(question)
                 } else {
