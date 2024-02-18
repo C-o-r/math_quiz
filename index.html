@@ -137,7 +137,7 @@
 
         // Display final score and feedback
         const finalScore = scoreSection1 + scoreSection2 + scoreSection3;
-        alert(`Your Final Score: ${finalScore}\nFeedback:\nSection 1: ${scoreSection1} points\nSection 2: ${scoreSection2} points\nSection 3: ${scoreSection3} points`);
+        alert(`Your Final Score: ${finalScore}\nFeedback:\nSection 1: ${scoreSection1} points (${answers.q1 === correctAnswersSection1.q1 ? 'Correct' : 'Wrong'})\nSection 2: ${scoreSection2} points (${answers.q4 === correctAnswersSection2.q4 ? 'Correct' : 'Wrong'})\nSection 3: ${scoreSection3} points (${answers.q6 === correctAnswersSection3.q6 ? 'Correct' : 'Wrong'})`);
     }
 </script>
 
