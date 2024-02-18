@@ -83,29 +83,58 @@
             q6: document.querySelector('input[name="q6"]:checked') ? document.querySelector('input[name="q6"]:checked').value : null
         };
 
-        // Calculate score
-        let score = 0;
-        const correctAnswers = {
+        // Calculate score for Section 1
+        let scoreSection1 = 0;
+        const correctAnswersSection1 = {
             q1: '128',
-            q2: '124',
+            q2: '124'
+        };
+
+        for (const question in correctAnswersSection1) {
+            if (answers[question] === correctAnswersSection1[question]) {
+                scoreSection1 += 1; // Correct answers
+            } else if (answers[question] === '') {
+                scoreSection1 -= 2; // Blanks
+            } else {
+                scoreSection1 -= 3; // Incorrect answers
+            }
+        }
+
+        // Calculate score for Section 2
+        let scoreSection2 = 0;
+        const correctAnswersSection2 = {
             q3: '0.0025',
-            q4: '0.04',
+            q4: '0.04'
+        };
+
+        for (const question in correctAnswersSection2) {
+            if (answers[question] === correctAnswersSection2[question]) {
+                scoreSection2 += 2; // Correct answers
+            } else if (answers[question] === '') {
+                scoreSection2 -= 1; // Blanks
+            } else {
+                scoreSection2 -= 1; // Incorrect answers
+            }
+        }
+
+        // Calculate score for Section 3
+        let scoreSection3 = 0;
+        const correctAnswersSection3 = {
             q5: 'b',
             q6: 'c'
         };
 
-        for (const question in correctAnswers) {
-            if (answers[question] === correctAnswers[question]) {
-                score += 1; // Correct answers
-            } else if (answers[question] === '') {
-                score -= 2; // Blanks
+        for (const question in correctAnswersSection3) {
+            if (answers[question] === correctAnswersSection3[question]) {
+                scoreSection3 += 2; // Correct answers
             } else {
-                score -= 3; // Incorrect answers
+                scoreSection3 -= 2; // Incorrect answers
             }
         }
 
-        // Display score and feedback
-        alert(`Your Score: ${score}\nFeedback:\nQ1: ${answers.q1 === correctAnswers.q1 ? 'Correct' : 'Incorrect'}\nQ2: ${answers.q2 === correctAnswers.q2 ? 'Correct' : 'Incorrect'}\nQ3: ${answers.q3 === correctAnswers.q3 ? 'Correct' : 'Incorrect'}\nQ4: ${answers.q4 === correctAnswers.q4 ? 'Correct' : 'Incorrect'}\nQ5: ${answers.q5 === correctAnswers.q5 ? 'Correct' : 'Incorrect'}\nQ6: ${answers.q6 === correctAnswers.q6 ? 'Correct' : 'Incorrect'}`);
+        // Display final score and feedback
+        const finalScore = scoreSection1 + scoreSection2 + scoreSection3;
+        alert(`Your Final Score: ${finalScore}\nFeedback:\nSection 1: ${scoreSection1} points\nSection 2: ${scoreSection2} points\nSection 3: ${scoreSection3} points`);
     }
 </script>
 
