@@ -207,7 +207,6 @@
                     scoreSection1 += 1; // Correct answers
                 } else if (answers[question] === '') {
                     scoreSection1 -= 2; // Blanks
-                    incorrectQuestionsSection1.push(question)
                 } else {
                     scoreSection1 -= 3; // Incorrect answers
                     incorrectQuestionsSection1.push(question);
@@ -241,7 +240,6 @@
                     scoreSection2 += 2; // Correct answers
                 } else if (answers[question] === '') {
                     scoreSection2 -= 1; // Blanks
-                    incorrectQuestionsSection2.push(question)
                 } else {
                     scoreSection2 -= 1; // Incorrect answers
                     incorrectQuestionsSection2.push(question);
@@ -256,7 +254,7 @@
                 q31: 'b',
                 q32: 'a',
                 q33: 'c',
-                q34: 'c', 
+                q34: 'c',
                 q35: 'c',
                 q36: 'a',
                 q37: 'c',
@@ -267,9 +265,6 @@
             for (const question in correctAnswersSection3) {
                 if (answers[question] === correctAnswersSection3[question]) {
                     scoreSection3 += 2; // Correct answers
-               else if (answers[question] === undefined || answers[question] === '') {
-                    scoreSection3 -= 1; // Blanks
-                    incorrectQuestionsSection3.push(question)
                 } else {
                     scoreSection3 -= 2; // Incorrect answers
                     incorrectQuestionsSection3.push(question);
