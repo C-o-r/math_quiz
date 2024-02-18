@@ -3,83 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Quiz</title>
+    <title>Quiz with Timer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        #result {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .correct {
-            color: green;
-        }
-        .incorrect {
-            color: red;
-        }
-        .section {
-            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <h1>Math Quiz</h1>
-    <form id="quizForm">
-        <div id="questions">
-            <!-- Questions will be generated here -->
-        </div>
-        <input type="submit" value="Check Answers">
-    </form>
-    <div id="result"></div>
 
-    <script>
-        document.getElementById('quizForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Implementation of answer checking goes here
-        });
+<!-- Section 1: Computation of Real Numbers -->
+<section>
+    <h2>Section 1: Computation of Real Numbers</h2>
+    <p>Correct Answers: +1 Point, Incorrect Answers: -3 points, Blanks: -2 points</p>
+    <p>1. 87 + 31 = <input type="text" id="q1"></p>
+    <p>2. 26 + 98 = <input type="text" id="q2"></p>
+</section>
 
-        // Timer implementation goes here
+<!-- Section 2: Computation of Decimal Numbers -->
+<section>
+    <h2>Section 2: Computation of Decimal Numbers</h2>
+    <p>Correct Answers: +2 Points, Incorrect Answers: -1 point, Blanks: -1 point</p>
+    <p>3. 0.5 * 0.005 = <input type="text" id="q3"></p>
+    <p>4. 0.6 / 15 = <input type="text" id="q4"></p>
+</section>
 
-        // Generating questions
-        document.addEventListener('DOMContentLoaded', function() {
-            var questionsDiv = document.getElementById('questions');
+<!-- Section 3: Multiplication of Decimal Numbers -->
+<section>
+    <h2>Section 3: Multiplication of Decimal Numbers</h2>
+    <p>Correct Answers: +2 Points, Incorrect Answers: -2 point, Blanks: -1 point</p>
+    <p>5. 410 * 103 = <br>
+        a) <input type="radio" name="q5" value="a"> 43230
+        b) <input type="radio" name="q5" value="b"> 42230 (correct)
+        c) <input type="radio" name="q5" value="c"> 43330
+    </p>
+    <p>6. 0.14 * 48756 = <br>
+        a) <input type="radio" name="q6" value="a"> 8125
+        b) <input type="radio" name="q6" value="b"> 7525
+        c) <input type="radio" name="q6" value="c"> 6825.84 (correct)
+    </p>
+</section>
 
-            // Section 1: Computation of Real Numbers
-            var section1Question = document.createElement('div');
-            section1Question.innerHTML = `
-                <label for="answer1">7 x 18 =</label><br>
-                <input type="text" id="answer1" required><br>
-            `;
-            questionsDiv.appendChild(section1Question);
+<!-- Timer -->
+<div id="timer">Time Left: 10:00</div>
 
-            // Section 2: Computation of Decimal Numbers
-            var section2Question = document.createElement('div');
-            section2Question.innerHTML = `
-                <label for="answer2">0.3 x 0.45 =</label><br>
-                <input type="text" id="answer2" required><br>
-            `;
-            questionsDiv.appendChild(section2Question);
+<!-- Submit Button -->
+<button onclick="submitAnswers()">Submit</button>
 
-            // Section 3: Multiplication of Decimal Numbers
-            var section3Question = document.createElement('div');
-            section3Question.innerHTML = `
-                <label for="answer3">786.3 * 1.03 =</label><br>
-                <input type="radio" name="choice3" value="a">a. 808.88&nbsp;&nbsp;
-                <input type="radio" name="choice3" value="b">b. 809.89&nbsp;&nbsp;
-                <input type="radio" name="choice3" value="c">c. 808.98<br>
-            `;
-            questionsDiv.appendChild(section3Question);
-        });
-    </script>
+<script>
+    let time = 600; // 10 minutes in seconds
+    let timerInterval;
 
-    <style>
-        .section:not(:last-child) {
-            margin-bottom: 50px;
+    // Update timer every second
+    function updateTimer() {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        document.getElementById('timer').textContent = `Time Left: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        time--;
+
+        if (time < 0) {
+            clearInterval(timerInterval);
+            submitAnswers();
         }
-    </style>
+    }
 
-    <div class="section"></div>
+    timerInterval = setInterval(updateTimer, 1000);
+
+    // Function to submit answers and calculate score
+    function submitAnswers() {
+        clearInterval(timerInterval);
+
+        // Retrieve user answers
+        const answers = {
+            q1: document.getElementById('q1').value,
+            q2: document.getElementById('q2').value,
+            q3: document.getElementById('q3').value,
+            q4: document.getElementById('q4').value,
+            q5: document.querySelector('input[name="q5"]:checked') ? document.querySelector('input[name="q5"]:checked').value : null,
+            q6: document.querySelector('input[name="q6"]:checked') ? document.querySelector('input[name="q6"]:checked').value : null
+        };
+
+        // Calculate score
+        let score = 0;
+        const correctAnswers = {
+            q1: '128',
+            q2: '124',
+            q3: '0.0025',
+            q4: '0.04',
+            q5: 'b',
+            q6: 'c'
+        };
+
+        for (const question in correctAnswers) {
+            if (answers[question] === correctAnswers[question]) {
+                score += 1; // Correct answers
+            } else if (answers[question] === '') {
+                score -= 2; // Blanks
+            } else {
+                score -= 3; // Incorrect answers
+            }
+        }
+
+        // Display score and feedback
+        alert(`Your Score: ${score}\nFeedback:\nQ1: ${answers.q1 === correctAnswers.q1 ? 'Correct' : 'Incorrect'}\nQ2: ${answers.q2 === correctAnswers.q2 ? 'Correct' : 'Incorrect'}\nQ3: ${answers.q3 === correctAnswers.q3 ? 'Correct' : 'Incorrect'}\nQ4: ${answers.q4 === correctAnswers.q4 ? 'Correct' : 'Incorrect'}\nQ5: ${answers.q5 === correctAnswers.q5 ? 'Correct' : 'Incorrect'}\nQ6: ${answers.q6 === correctAnswers.q6 ? 'Correct' : 'Incorrect'}`);
+    }
+</script>
+
 </body>
 </html>
