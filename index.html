@@ -11,33 +11,34 @@
     </style>
 </head>
 <body>
-
+<!-- FLOW TRADERS MATH TEST -->
 <!-- Section 1: Computation of Real Numbers -->
 <section>
     <h2>Section 1: Computation of Real Numbers</h2>
     <p>Correct Answers: +1 Point, Incorrect Answers: -3 points, Blanks: -2 points</p>
     <p>1. 87 + 31 = <input type="text" id="q1"></p>
     <p>2. 26 + 98 = <input type="text" id="q2"></p>
+    <p>3. 68 - 42 = <input type="text" id="q3"></p>
 </section>
 
 <!-- Section 2: Computation of Decimal Numbers -->
 <section>
     <h2>Section 2: Computation of Decimal Numbers</h2>
     <p>Correct Answers: +2 Points, Incorrect Answers: -1 point, Blanks: -1 point</p>
-    <p>3. 0.5 * 0.005 = <input type="text" id="q3"></p>
-    <p>4. 0.6 / 15 = <input type="text" id="q4"></p>
+    <p>4. 0.5 * 0.005 = <input type="text" id="q4"></p>
+    <p>5. 0.6 / 15 = <input type="text" id="q5"></p>
 </section>
 
 <!-- Section 3: Multiplication of Decimal Numbers -->
 <section>
     <h2>Section 3: Multiplication of Decimal Numbers</h2>
     <p>Correct Answers: +2 Points, Incorrect Answers: -2 point, Blanks: -1 point</p>
-    <p>5. 410 * 103 = <br>
+    <p>6. 410 * 103 = <br>
         a) <input type="radio" name="q5" value="a"> 43230
         b) <input type="radio" name="q5" value="b"> 42230 (correct)
         c) <input type="radio" name="q5" value="c"> 43330
     </p>
-    <p>6. 0.14 * 48756 = <br>
+    <p>7. 0.14 * 48756 = <br>
         a) <input type="radio" name="q6" value="a"> 8125
         b) <input type="radio" name="q6" value="b"> 7525
         c) <input type="radio" name="q6" value="c"> 6825.84 (correct)
@@ -79,15 +80,17 @@
             q2: document.getElementById('q2').value,
             q3: document.getElementById('q3').value,
             q4: document.getElementById('q4').value,
-            q5: document.querySelector('input[name="q5"]:checked') ? document.querySelector('input[name="q5"]:checked').value : null,
-            q6: document.querySelector('input[name="q6"]:checked') ? document.querySelector('input[name="q6"]:checked').value : null
+            q5: document.getElementById('q5').value,
+            q6: document.querySelector('input[name="q6"]:checked') ? document.querySelector('input[name="q6"]:checked').value : null,
+            q7: document.querySelector('input[name="q7"]:checked') ? document.querySelector('input[name="q7"]:checked').value : null
         };
 
         // Calculate score for Section 1
         let scoreSection1 = 0;
         const correctAnswersSection1 = {
             q1: '128',
-            q2: '124'
+            q2: '124',
+            q3: '26'
         };
 
         for (const question in correctAnswersSection1) {
@@ -103,8 +106,8 @@
         // Calculate score for Section 2
         let scoreSection2 = 0;
         const correctAnswersSection2 = {
-            q3: '0.0025',
-            q4: '0.04'
+            q4: '0.0025',
+            q5: '0.04'
         };
 
         for (const question in correctAnswersSection2) {
@@ -120,8 +123,8 @@
         // Calculate score for Section 3
         let scoreSection3 = 0;
         const correctAnswersSection3 = {
-            q5: 'b',
-            q6: 'c'
+            q6: 'b',
+            q7: 'c'
         };
 
         for (const question in correctAnswersSection3) {
