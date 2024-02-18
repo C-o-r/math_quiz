@@ -88,9 +88,8 @@
         const scoreSection2 = calculateSectionScore(answers, ['q3', 'q4'], 2, 1, 1);
         const scoreSection3 = calculateSectionScoreRadio(answers, ['q5', 'q6'], ['b', 'c'], 2, 2, 1);
 
-        // Display total score
-        const totalScore = scoreSection1 + scoreSection2 + scoreSection3;
-        alert(`Your Total Score: ${totalScore}`);
+        // Display scores and feedback for each section
+        alert(`Section 1 Score: ${scoreSection1}\nSection 2 Score: ${scoreSection2}\nSection 3 Score: ${scoreSection3}`);
     }
 
     // Function to calculate scores for sections with text input
