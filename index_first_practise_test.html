@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz with Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Replace 'your-image.png' with the actual filename and path of your PNG image -->
+    <img src="flow.png" alt="All rights reserved to ©Flow Traders">
+
+    <!-- Section 1: Computation of Real Numbers -->
+    <section>
+        <h2>Section 1: Computation of Real Numbers</h2>
+        <p>Correct Answers: +1 Point, Incorrect Answers: -3 points, Blanks: -2 points</p>
+        <p>1. 75 + 47 = <input type="text" id="q1"></p>
+        <p>2. 41 - 12 = <input type="text" id="q2"></p>
+        <p>3. 3 - 17 = <input type="text" id="q3"></p>
+        <p>4. 28 + 95 = <input type="text" id="q4"></p>
+        <p>5. 11 - 63 = <input type="text" id="q5"></p>
+        <p>6. 18 + 66  = <input type="text" id="q6"></p>
+        <p>7. 73 - 36 = <input type="text" id="q7"></p>
+        <p>8. 98 / 7 = <input type="text" id="q8"></p>
+        <p>9. 6 * 17 = <input type="text" id="q9"></p>
+        <p>10. 52 / 4 = <input type="text" id="q10"></p>
+        <p>11. 156 / 6 = <input type="text" id="q11"></p>
+        <p>12. 108 / 9 = <input type="text" id="q12"></p>
+        <p>13. 9 * 12 = <input type="text" id="q13"></p>
+        <p>14. 13 * 11 = <input type="text" id="q14"></p>
+        <p>15. 84 - 27 = <input type="text" id="q15"></p>
+        <p>16. 102 - 111 = <input type="text" id="q16"></p>
+        <p>17. 61 + 89 = <input type="text" id="q17"></p>
+        <p>18. 92 + 79 = <input type="text" id="q18"></p>
+        <p>19. 8 * 14 = <input type="text" id="q19"></p>
+        <p>20. 17 * 5 = <input type="text" id="q20"></p>
+        <p>21. 106 - 18 = <input type="text" id="q21"></p>
+        <p>22. 67 + 135 = <input type="text" id="q22"></p>
+        <p>23. 170 / 5 = <input type="text" id="q23"></p>
+        <p>24. 152 / 8 = <input type="text" id="q24"></p>
+        <p>25. 96 - 27 = <input type="text" id="q25"></p>
+        <p>26. 98 * 5 = <input type="text" id="q26"></p>
+        <p>27. 12 * 102 = <input type="text" id="q27"></p>
+        <p>28. 98 / 7 = <input type="text" id="q28"></p>
+        <p>29. 333 - 157 = <input type="text" id="q29"></p>
+        <p>30. 5 * 15 = <input type="text" id="q30"></p>
+    </section>
+
+    <!-- Section 2: Computation of Decimal Numbers -->
+    <section>
+        <h2>Section 2: Computation of Decimal Numbers</h2>
+        <p>Correct Answers: +2 Points, Incorrect Answers: -1 point, Blanks: -1 point</p>
+        <p>31. 0.5 * 0.05 = <input type="text" id="31"></p>
+        <p>32. 15 / 0.4 = <input type="text" id="q32"></p>
+        <p>33. 0.002 * 40 = <input type="text" id="q33"></p>
+        <p>34. 0.09 / 0.9 = <input type="text" id="q34"></p>
+        <p>35. 0.6 / 15 = <input type="text" id="q35"></p>
+        <p>36. 0.04 * 5.5 = <input type="text" id="q36"></p>
+        <p>37. 0.1 - 0.04 = <input type="text" id="q37"></p>
+        <p>38. 52.28 + 1.338 = <input type="text" id="q38"></p>
+        <p>39. 0.012 * 40 = <input type="text" id="q39"></p>
+        <p>40. 55.338 - 0.889 = <input type="text" id="q40"></p>
+        <p>41. 22200 * 0.003 = <input type="text" id="q41"></p>
+        <p>42. -4.66 + 2.555 = <input type="text" id="q42"></p>
+        <p>43. 0.3 / 0.01 = <input type="text" id="q43"></p>
+        <p>44. 0.12 / 6 = <input type="text" id="q44"></p>
+        <p>45. 2.5 * 0.04 = <input type="text" id="q45"></p>
+        <p>46. 14 / 0.7 = <input type="text" id="q46"></p>
+        <p>47. 0.997 + 1.03 = <input type="text" id="q47"></p>
+        <p>48. 80 * 1.02 = <input type="text" id="q48"></p>
+        <p>49. 3.03 - 0.11 = <input type="text" id="q49"></p>
+        <p>50. 6.44 * 0.25 = <input type="text" id="q50"></p>
+        <p>51. 15 * 1.25 = <input type="text" id="q51"></p>
+        <p>52. 8769 + 3654 = <input type="text" id="q52"></p>
+        <p>53. 18 / 1.2 = <input type="text" id="q53"></p>
+        <p>54. 0.66 / 0.22 = <input type="text" id="q54"></p>
+        <p>55. 0.08 * 2.5 = <input type="text" id="q55"></p>
+        <p>56. 11 * 0.002 = <input type="text" id="q56"></p>
+        <p>57. 5287 + 3658 = <input type="text" id="q57"></p>
+        <p>58. 77.66 * 0.5 = <input type="text" id="q58"></p>
+        <p>59. 11.07 - 9.18 = <input type="text" id="q59"></p>
+        <p>60. 5.4 * 0.15 = <input type="text" id="q60"></p>
+
+    </section>
+
+    <!-- Section 3: Multiplication of Decimal Numbers -->
+    <section>
+        <h2>Section 3: Multiplication of Decimal Numbers</h2>
+        <p>Correct Answers: +2 Points, Incorrect Answers: -2 point, Blanks: -1 point</p>
+        <p>62. 410 * 103 = <br>
+            a) <input type="radio" name="q62" value="a"> 43230 
+            b) <input type="radio" name="q62" value="b"> 42230
+            c) <input type="radio" name="q62" value="c"> 43330
+        </p>
+        <p>63. 60 * 4000 = <br>
+            a) <input type="radio" name="q63" value="a"> 24000
+            b) <input type="radio" name="q63" value="b"> 240000
+            c) <input type="radio" name="q63" value="c"> 2400000
+        </p>
+        <p>64. 444 * 132 = <br>
+            a) <input type="radio" name="q64" value="a"> 58608
+            b) <input type="radio" name="q64" value="b"> 62608
+            c) <input type="radio" name="q64" value="c"> 66608
+        </p>
+        <p>65. 305 * 68 = <br>
+            a) <input type="radio" name="q65" value="a"> 19840
+            b) <input type="radio" name="q65" value="b"> 20740
+            c) <input type="radio" name="q65" value="c"> 21940
+        </p>
+        <p>66. 12.7 * 82 = <br>
+            a) <input type="radio" name="q66" value="a"> 1041
+            b) <input type="radio" name="q66" value="b"> 1444
+            c) <input type="radio" name="q66" value="c"> 964
+        </p>
+        <p>67. 141 * 143 = <br>
+            a) <input type="radio" name="q67" value="a"> 16783
+            b) <input type="radio" name="q67" value="b"> 18883
+            c) <input type="radio" name="q67" value="c"> 20163
+        </p>
+        <p>68. 78.6 * 1.03 = <br>
+            a) <input type="radio" name="q68" value="a"> 81.0
+            b) <input type="radio" name="q68" value="b"> 82.8
+            c) <input type="radio" name="q68" value="c"> 83.8
+        </p>
+        <p>69. 69.4 * 1.02 = <br>
+            a) <input type="radio" name="q69" value="a"> 70.4
+            b) <input type="radio" name="q69" value="b"> 70.6
+            c) <input type="radio" name="q69" value="c"> 70.8
+        </p>
+        <p>70. 455 * 222 = <br>
+            a) <input type="radio" name="q70" value="a"> 111111
+            b) <input type="radio" name="q70" value="b"> 110000
+            c) <input type="radio" name="q70" value="c"> 101010
+        </p>
+        <p>71. 485 * 15.5 = <br>
+            a) <input type="radio" name="q71" value="a"> 7966
+            b) <input type="radio" name="q71" value="b"> 7517
+            c) <input type="radio" name="q71" value="c"> 7125
+        </p>
+        <p>72. 98 * 1200 = <br>
+            a) <input type="radio" name="q72" value="a"> 117600
+            b) <input type="radio" name="q72" value="b"> 136600
+            c) <input type="radio" name="q72" value="c"> 100600
+        </p>  
+        <p>73. 1850 * 800 = <br>
+            a) <input type="radio" name="q73" value="a"> 184000
+            b) <input type="radio" name="q73" value="b"> 1480000
+            c) <input type="radio" name="q73" value="c"> 148000
+        </p>  
+        <p>74. 0.14 * 48756 = <br>
+            a) <input type="radio" name="q74" value="a"> 8125
+            b) <input type="radio" name="q74" value="b"> 7525
+            c) <input type="radio" name="q74" value="c"> 6825
+        </p>  
+        <p>75. 6888 * 0.03 = <br>
+            a) <input type="radio" name="q75" value="a"> 206.6
+            b) <input type="radio" name="q75" value="b"> 214.6
+            c) <input type="radio" name="q75" value="c"> 227.6
+        </p> 
+        <p>76. 0.325 * 325 = <br>
+            a) <input type="radio" name="q76" value="a"> 99
+            b) <input type="radio" name="q76" value="b"> 100
+            c) <input type="radio" name="q76" value="c"> 106
+        </p> 
+    </section>
+
+    <!-- Timer -->
+    <div id="timer">Time Left: 10:00</div>
+
+    <!-- Submit Button -->
+    <button onclick="submitAnswers()">Submit</button>
+
+    <script>
+        let time = 600; // 10 minutes in seconds
+        let timerInterval;
+
+        // Update timer every second
+        function updateTimer() {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            document.getElementById('timer').textContent = `Time Left: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            time--;
+
+            if (time < 0) {
+                clearInterval(timerInterval);
+                submitAnswers();
+            }
+        }
+
+        timerInterval = setInterval(updateTimer, 1000);
+
+        // Function to submit answers and calculate score
+        function submitAnswers() {
+            clearInterval(timerInterval);
+
+            // Retrieve user answers
+            const answers = {
+                q1: document.getElementById('q1').value,
+                q2: document.getElementById('q2').value,
+                q3: document.getElementById('q3').value,
+                q4: document.getElementById('q4').value,
+                q5: document.getElementById('q5').value,
+                q6: document.getElementById('q6').value,
+                q7: document.getElementById('q7').value,
+                q8: document.getElementById('q8').value,
+                q9: document.getElementById('q9').value,
+                q10: document.getElementById('q10').value,
+                q11: document.getElementById('q11').value,
+                q12: document.getElementById('q12').value,
+                q13: document.getElementById('q13').value,
+                q14: document.getElementById('q14').value,
+                q15: document.getElementById('q15').value,
+                q16: document.getElementById('q16').value,
+                q17: document.getElementById('q17').value,
+                q18: document.getElementById('q18').value,
+                q19: document.getElementById('q19').value,
+                q20: document.getElementById('q20').value,
+                q21: document.getElementById('q21').value,
+                q22: document.getElementById('q22').value,
+                q23: document.getElementById('q23').value,
+                q24: document.getElementById('q24').value,
+                q25: document.getElementById('q25').value,
+                q26: document.getElementById('q26').value,
+                q27: document.getElementById('q27').value,
+                q28: document.getElementById('q28').value,
+                q29: document.getElementById('q29').value,
+                q30: document.getElementById('q30').value,
+                
+                q31: document.getElementById('q31').value,
+                q32: document.getElementById('q32').value,
+                q33: document.getElementById('q33').value,
+                q34: document.getElementById('q34').value,
+                q35: document.getElementById('q35').value,
+                q36: document.getElementById('q36').value,
+                q37: document.getElementById('q37').value,
+                q38: document.getElementById('q38').value,
+                q39: document.getElementById('q39').value,
+                q40: document.getElementById('q40').value,
+                q41: document.getElementById('q41').value,
+                q42: document.getElementById('q42').value,
+                q43: document.getElementById('q43').value,
+                q44: document.getElementById('q44').value,
+                q45: document.getElementById('q45').value,
+                q46: document.getElementById('q46').value,
+                q47: document.getElementById('q47').value,
+                q48: document.getElementById('q48').value,
+                q49: document.getElementById('q49').value,
+                q50: document.getElementById('q50').value,
+                q51: document.getElementById('q51').value,
+                q52: document.getElementById('q52').value,
+                q53: document.getElementById('q53').value,
+                q54: document.getElementById('q54').value,
+                q55: document.getElementById('q55').value,
+                q56: document.getElementById('q56').value,
+                q57: document.getElementById('q57').value,
+                q58: document.getElementById('q58').value,
+                q59: document.getElementById('q59').value,
+                q60: document.getElementById('q60').value,
+           
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                q62: document.querySelector('input[name="q62"]:checked') ? document.querySelector('input[name="q62"]:checked').value : null,
+                q63: document.querySelector('input[name="q63"]:checked') ? document.querySelector('input[name="q63"]:checked').value : null,
+                q64: document.querySelector('input[name="q64"]:checked') ? document.querySelector('input[name="q64"]:checked').value : null,
+                q65: document.querySelector('input[name="q65"]:checked') ? document.querySelector('input[name="q65"]:checked').value : null,
+                q66: document.querySelector('input[name="q66"]:checked') ? document.querySelector('input[name="q66"]:checked').value : null,
+                q67: document.querySelector('input[name="q67"]:checked') ? document.querySelector('input[name="q67"]:checked').value : null,
+                q68: document.querySelector('input[name="q68"]:checked') ? document.querySelector('input[name="q68"]:checked').value : null,
+                q69: document.querySelector('input[name="q69"]:checked') ? document.querySelector('input[name="q69"]:checked').value : null,
+                q70: document.querySelector('input[name="q70"]:checked') ? document.querySelector('input[name="q70"]:checked').value : null,
+                q71: document.querySelector('input[name="q71"]:checked') ? document.querySelector('input[name="q71"]:checked').value : null,
+                q72: document.querySelector('input[name="q72"]:checked') ? document.querySelector('input[name="q72"]:checked').value : null,
+                q73: document.querySelector('input[name="q73"]:checked') ? document.querySelector('input[name="q73"]:checked').value : null,
+                q74: document.querySelector('input[name="q74"]:checked') ? document.querySelector('input[name="q74"]:checked').value : null,
+                q75: document.querySelector('input[name="q75"]:checked') ? document.querySelector('input[name="q75"]:checked').value : null,
+                q76: document.querySelector('input[name="q76"]:checked') ? document.querySelector('input[name="q76"]:checked').value : null
+               
+            };
+
+            // Calculate score for Section 1
+            let scoreSection1 = 0;
+            let incorrectQuestionsSection1 = [];
+
+            const correctAnswersSection1 = {
+                q1: '122',
+                q2: '29',
+                q3: '-14',
+                q4: '123',
+                q5: '-52',
+                q6: '84',
+                q7: '37',
+                q8: '14',
+                q9: '102',
+                q10: '13',
+                q11: '26',
+                q12: '12',
+                q13: '108',
+                q14: '143',
+                q15: '57',
+                q16: '-9',
+                q17: '150',
+                q18: '171',
+                q19: '112',
+                q20: '85',
+                q21: '88',
+                q22: '202',
+                q23: '34',
+                q24: '19',
+                q25: '69',
+                q26: '490',
+                q27: '1224',
+                q28: '14',
+                q29: '176',
+                q30: '75'
+            };
+
+            for (const question in correctAnswersSection1) {
+                if (answers[question] === correctAnswersSection1[question]) {
+                    scoreSection1 += 1; // Correct answerss
+                } else if (answers[question] === '') {
+                    scoreSection1 -= 2; // Blanks
+                    incorrectQuestionsSection1.push(question)
+                } else {
+                    scoreSection1 -= 3; // Incorrect answers
+                    incorrectQuestionsSection1.push(question);
+                }
+            }
+
+            // Calculate score for Section 2
+            let scoreSection2 = 0;
+            let incorrectQuestionsSection2 = [];
+
+            const correctAnswersSection2 = {
+                q31: '0.025',
+                q32: '37.5',
+                q33: '0.08',
+                q34: '0.1',
+                q35: '0.04',
+                q36: '0.22',
+                q37: '0.06',
+                q38: '56.618',
+                q39: '0.48',
+                q40: '54.449',
+                q41: '66.6',
+                q42: '-2.105',
+                q43: '30',
+                q44: '0.02',
+                q45: '0.1',
+                q46: '20',
+                q47: '2.027',
+                q48: '81.6',
+                q49: '2.92',
+                q50: '1.61',
+                q51: '18.75',
+                q52: '12423',
+                q53: '15',
+                q54: '3',
+                q55: '0.2',
+                q56: '0.022',
+                q57: '8945',
+                q58: '38.83',
+                q59: '1.89',
+                q60: '0.81'
+          
+            };
+
+            for (const question in correctAnswersSection2) {
+                if (answers[question] === correctAnswersSection2[question]) {
+                    scoreSection2 += 2; // Correct answers
+                } else if (answers[question] === '') {
+                    scoreSection2 -= 1; // Blanks
+                     incorrectQuestionsSection2.push(question)
+                } else {
+                    scoreSection2 -= 1; // Incorrect answers
+                    incorrectQuestionsSection2.push(question);
+                }
+            }
+
+            // Calculate score for Section 3
+            let scoreSection3 = 0;
+            let incorrectQuestionsSection3 = [];
+
+            const correctAnswersSection3 = {
+                q62: 'b',
+                q63: 'b',
+                q64: 'a',
+                q65: 'b',
+                q66: 'a',
+                q67: 'c',
+                q68: 'a',
+                q69: 'c',
+                q70: 'c',
+                q71: 'b',
+                q72: 'a',
+                q73: 'b',
+                q74: 'c',
+                q75: 'a',
+                q76: 'c'
+               
+            };
+
+            for (const question in correctAnswersSection3) {
+                if (answers[question] === correctAnswersSection3[question]) {
+                    scoreSection3 += 2; // Correct answers
+                } else if (!answers[question]) {
+                    scoreSection3 -= 1; // No option selected
+                    incorrectQuestionsSection3.push(question)
+                }else {
+                    scoreSection3 -= 2; // Incorrect answers.
+                    incorrectQuestionsSection3.push(question);
+                }
+            }
+
+            // Display final score and feedback
+            const finalScore = scoreSection1 + scoreSection2 + scoreSection3;
+            let feedback = `Your Final Score: ${finalScore}\nFeedback:\n`;
+
+            if (incorrectQuestionsSection1.length > 0) {
+                feedback += `Section 1: Incorrect answers in questions ${incorrectQuestionsSection1.join(', ')}\n`;
+            } else {
+                feedback += 'Section 1: All correct in Section 1\n';
+            }
+
+            if (incorrectQuestionsSection2.length > 0) {
+                feedback += `Section 2: Incorrect answers in questions ${incorrectQuestionsSection2.join(', ')}\n`;
+            } else {
+                feedback += 'Section 2: All correct in Section 2\n';
+            }
+
+            if (incorrectQuestionsSection3.length > 0) {
+                feedback += `Section 3: Incorrect answers in questions ${incorrectQuestionsSection3.join(', ')}\n`;
+            } else {
+                feedback += 'Section 3: All correct in Section 3\n';
+            }
+
+            alert(feedback);
+        }
+    </script>
+
+</body>
+</html>
