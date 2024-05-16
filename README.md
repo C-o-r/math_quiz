@@ -1,6 +1,6 @@
 
 
-# Flow Traders Math Test
+# Traders Interview First Stage Math Test
 
 This repository contains the source code for a Math Quiz web application. The application presents a timed quiz with multiple sections focusing on various aspects of mathematics, such as computation of real numbers, computation of decimal numbers, and multiplication of decimal numbers. Acess the quiz via:  https://c-o-r.github.io/math_quiz/ and choose a test.
 
